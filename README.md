@@ -26,8 +26,8 @@ und nutzt Peer-to-Peer-Kommunikation ohne zentrale Server.
 - Mahir Ahmad
 - Sena Akpolad
 - Onur Ücelehan
-- Meriam 
-- Rina 
+- Meriam Lakhrissi
+- Najiba Sulaimankhel
 
 
 **Stand:** April 2025
