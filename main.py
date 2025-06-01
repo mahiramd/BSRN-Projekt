@@ -17,7 +17,9 @@ if __name__ == "__main__":
     users = manager.dict()  # Gemeinsames Wörterbuch für bekannte Nutzer
 
     # Discovery-Service als separater Prozess starten
+    if config.get("discovery", True):
     discovery = multiprocessing.Process(target=discovery_service_starten, args=(config, users))
+    discovery.start()
     # Netzwerk-Listener als separater Prozess starten
     network = multiprocessing.Process(target=network_listener_starten, args=(config, users))
 
