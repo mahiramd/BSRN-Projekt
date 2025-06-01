@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # Netzwerk-Listener als separater Prozess starten
     network = multiprocessing.Process(target=network_listener_starten, args=(config, users))
 
-    discovery.start()  # Discovery-Prozess starten
+    
     network.start()    # Netzwerk-Prozess starten
 
     # Die Kommandozeile (CLI) läuft im Hauptprozess, damit Eingaben funktionieren
