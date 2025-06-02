@@ -7,7 +7,7 @@ def discovery_service_starten(config, users):
     my_port = config["port"]           # Eigener Port für Nachrichten
 
     # Eigene IP-Adresse herausfinden (für lokale Netzwerke reicht das meist aus)
-    my_ip = socket.gethostbyname(socket.gethostname())
+    my_ip = socket.gethostbyname_ex(socket.gethostname())[2][0]
     # Eigenen Nutzer mit IP und Port in die Nutzerliste eintragen
     users[my_handle] = (my_ip, my_port)
 
