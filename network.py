@@ -1,18 +1,15 @@
 import socket
 
-
 ## Funktion, die Nachrichten aus dem Netzwerk empfängt und verarbeitet
 def network_listener_starten(config, users):
     # Port und eigener Benutzername (Handle) aus der Konfiguration holen
     port = config["port"]
     handle = config["handle"]
 
-# Zwei Sockets: einer für normale Nachrichten, einer für WHO/KNOWUSERS
-    sock_user = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock_user.bind(("", port))
-
-    sock_discovery = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock_discovery.bind(("", whoisport))
+    # UDP-Socket erstellen (für Netzwerk-Kommunikation)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # Socket an alle Netzwerkadapter auf dem angegebenen Port binden
+    sock.bind(("", port))
 
     # Endlosschleife, um ständig auf eingehende Nachrichten zu warten
     while True:
@@ -48,4 +45,4 @@ def network_listener_starten(config, users):
                         print(f"[INFO] Neuer User auf: {h} @ {ip}:{p}")
                 except Exception as e:
                     # Falls beim Aufteilen ein Fehler auftritt, Warnung ausgeben
-                    print(f"[WARNUNG] Falsche Verwendung von KNOWUSERS: {e}")
+                    print(f"[WARNUNG] Falsche Verwendung von KNOWUSERS: {e}"
