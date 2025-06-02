@@ -21,16 +21,10 @@ if __name__ == "__main__":
         discovery = multiprocessing.Process(target=discovery_service_starten, args=(config, users))
         discovery.start()
     # Netzwerk-Listener als separater Prozess starten
-    # Netzwerk-Listener für normalen Port starten
-    network1 = multiprocessing.Process(target=network_listener_starten, args=(config, users))
-    network1.start()
+    network = multiprocessing.Process(target=network_listener_starten, args=(config, users))
 
-    # Netzwerk-Listener für WHOIS-Port starten
-    config_for_who = config.copy()
-    config_for_who["port"] = config["whoisport"]
-
-    network2 = multiprocessing.Process(target=network_listener_starten, args=(config_for_who, users))
-    network2.start()
+    
+    network.start()    # Netzwerk-Prozess starten
 
     # Die Kommandozeile (CLI) läuft im Hauptprozess, damit Eingaben funktionieren
     try:
@@ -38,7 +32,4 @@ if __name__ == "__main__":
     finally:
         # Wenn CLI beendet wird, auch die anderen Prozesse stoppen
         discovery.terminate()
-        network1.terminate()
-        network2.terminate()
-
-
+        network.terminate()
