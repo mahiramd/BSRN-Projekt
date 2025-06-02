@@ -45,4 +45,4 @@ def network_listener_starten(config, users):
                         print(f"[INFO] Neuer User auf: {h} @ {ip}:{p}")
                 except Exception as e:
                     # Falls beim Aufteilen ein Fehler auftritt, Warnung ausgeben
-                    print(f"[WARNUNG] Falsche Verwendung von KNOWUSERS: {e}"
+                    print(f"[WARNUNG] Falsche Verwendung von KNOWUSERS: {e}")
