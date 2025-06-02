@@ -1,8 +1,8 @@
 import socket
 
-    # Schickt ne Nachricht an alle im Netzwerk (Broadcast)
+## Funktion, um eine Nachricht an alle im Netzwerk per Broadcast zu senden
 def send_broadcast(message, port):
-    # UDP-Socket – damit wir überhaupt was verschicken können
+    # UDP-Socket erstellen
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     # Broadcast erlauben (damit die Nachricht an alle gesendet wird)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
@@ -13,18 +13,18 @@ def send_broadcast(message, port):
 def start_cli(config, users):
     handle = config["handle"]       # Eigener Nutzername
     port = config["port"]           # Eigener Port für eingehende Nachrichten
-    whoisport = config["whoisport"] # Wird fürs WHO-Broadcast benutzt – damit andere dich sehen
+    whoisport = config["whoisport"] # Port für Discovery-Nachrichten
 
-     # Beim Start mitteilen, dass man dem Chat beitritt (für alle sichtbar)
+    # Beim Start mitteilen, dass man dem Chat beitritt (für alle sichtbar)
     send_broadcast(f"JOIN {handle} {port}", whoisport)
-    print(f"[INFO] Willkommen, du bist dem Chat beigetreten als '{handle}' – viel Spaß.")
+    print(f"[INFO] Du bist dem Chat beigetreten als '{handle}'.")
 
     try:
         while True:
             # Eingabe vom Nutzer abfragen
             command = input("Eingabe >> ").strip()
 
-            # Nutzer fragt nach der Liste aller leuten die Online sind 
+            # Nutzer fragt nach der Liste aller Online-Nutzer
             if command == "who":
                 send_broadcast("WHO", whoisport)
 
@@ -65,5 +65,3 @@ def start_cli(config, users):
     except KeyboardInterrupt:
         send_broadcast(f"LEAVE {handle}", whoisport)
         print("\n[INFO] Chat verlassen (Strg und C einfach drücken)")
-
-   
