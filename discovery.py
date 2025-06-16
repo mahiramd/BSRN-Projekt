@@ -15,7 +15,7 @@ def discovery_service_starten(config, users):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     # Erlaubt, den Port sofort wieder zu benutzen, auch wenn er kurz zuvor belegt war
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    # Socket an den Discovery-Port binden (hört dort auf eingehende Nachrichten)
     sock.bind(("", whois_port))
     print(f"[DISCOVERY] Gestartet auf {whois_port}. IP ist {my_ip}")
 
@@ -23,7 +23,7 @@ def discovery_service_starten(config, users):
     while True:
         try:
             # Daten und Adresse des Absenders empfangen
-            data, addr = sock.recvfrom(1024)
+            data, addr = sock.recvfrom(65535)
             # Nachricht in Text umwandeln und Leerzeichen entfernen
             message = data.decode("utf-8").strip()
 

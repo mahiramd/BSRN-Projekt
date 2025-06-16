@@ -1,6 +1,5 @@
-handle = "Alice"
-port = 5000
+handle = "Max"
+port = 5001
 whoisport = 4000
 autoreply = "Abwesend, bald wieder da"
 imagepath = "./bildersammlung"
-
