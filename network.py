@@ -1,3 +1,4 @@
+import os
 import socket
 
 ## Funktion, die Nachrichten aus dem Netzwerk empfängt und verarbeitet
@@ -13,8 +14,75 @@ def network_listener_starten(config, users):
 
     # Endlosschleife, um ständig auf eingehende Nachrichten zu warten
     while True:
+        expecting_image = False
+        expected_size = 0
+        current_sender = ''
+        expecting_image = False
+        expected_size = 0
+        current_sender = ''
         # Empfang von Daten (max. 1024 Bytes) und Absenderadresse
-        data, addr = sock.recvfrom(1024)
+        data, addr = sock.recvfrom(65535)
+        if expecting_image:
+            timestamp = int(time.time())
+            filename = f"{current_sender}_{timestamp}.jpg"
+            save_path = os.path.join(config["imagepath"], filename)
+            os.makedirs(config["imagepath"], exist_ok=True)
+            with open(save_path, "wb") as f:
+                f.write(data)
+            print(f"\n[IMG von {current_sender}]: Bild gespeichert unter {save_path}")
+            try:
+                import subprocess
+                subprocess.run(["xdg-open", save_path])
+            except:
+                pass
+            expecting_image = False
+            continue
+        try:
+            message = data.decode("utf-8").strip()
+        except UnicodeDecodeError:
+            print("[FEHLER] Empfangene Daten konnten nicht als UTF-8 decodiert werden – vermutlich fehlendes IMG vorher.")
+            continue
+        data, addr = sock.recvfrom(65535)
+        if expecting_image:
+            timestamp = int(time.time())
+            filename = f"{current_sender}_{timestamp}.jpg"
+            save_path = os.path.join(config["imagepath"], filename)
+            os.makedirs(config["imagepath"], exist_ok=True)
+            with open(save_path, "wb") as f:
+                f.write(data)
+            print(f"\n[IMG von {current_sender}]: Bild gespeichert unter {save_path}")
+            try:
+                import subprocess
+                subprocess.run(["xdg-open", save_path])
+            except:
+                pass
+            expecting_image = False
+            continue
+        try:
+            message = data.decode("utf-8").strip()
+        except UnicodeDecodeError:
+            print("[FEHLER] Empfangene Daten konnten nicht als UTF-8 decodiert werden – vermutlich fehlendes IMG vorher.")
+            continue
+        if expecting_image:
+            timestamp = int(time.time())
+            filename = f"{current_sender}_{timestamp}.jpg"
+            save_path = os.path.join(config["imagepath"], filename)
+            os.makedirs(config["imagepath"], exist_ok=True)
+            with open(save_path, "wb") as f:
+                f.write(data)
+            print(f"\n[IMG von {current_sender}]: Bild gespeichert unter {save_path}")
+            try:
+                import subprocess
+                subprocess.run(["xdg-open", save_path])
+            except:
+                pass
+            expecting_image = False
+            continue
+        try:
+            message = data.decode("utf-8").strip()
+        except UnicodeDecodeError:
+            print("[FEHLER] Empfangene Daten konnten nicht als UTF-8 decodiert werden.")
+            continue
         # Daten in lesbaren Text umwandeln und Leerzeichen am Anfang/Ende entfernen
         message = data.decode("utf-8").strip()
 
@@ -39,10 +107,13 @@ def network_listener_starten(config, users):
                     # Eintrag aufteilen in Nutzername, IP und Port
                     h, ip, p = entry.strip().split()
                     # Eigenen Nutzernamen ignorieren, nur andere hinzufügen
-                    if h != handle:
-                        # Nutzer in das Wörterbuch speichern (Name: (IP, Port))
-                        users[h] = (ip, int(p))
-                        print(f"[INFO] Neuer User auf: {h} @ {ip}:{p}")
+                    # Eigener Nutzer wird NICHT mehr ignoriert
+                    users[h] = (ip, int(p))
+                    print(f"[INFO] Neuer oder bekannter User: {h} @ {ip}:{p}")
+                    # Nutzer in das Wörterbuch speichern (Name: (IP, Port))
+                    users[h] = (ip, int(p))
+                    print(f"[INFO] Neuer oder bekannter User: {h} @ {ip}:{p}")
+                    print(f"[INFO] Neuer User auf: {h} @ {ip}:{p}")
                 except Exception as e:
                     # Falls beim Aufteilen ein Fehler auftritt, Warnung ausgeben
                     print(f"[WARNUNG] Falsche Verwendung von KNOWUSERS: {e}")
