@@ -1,0 +1,127 @@
+\doxysection{ui\+\_\+cli-\/\+Namensbereichsreferenz}
+\hypertarget{namespaceui__cli}{}\label{namespaceui__cli}\index{ui\_cli@{ui\_cli}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceui__cli_aa387c22239d2dfa642c43027a5f595ea}{print\+\_\+help}} ()
+\begin{DoxyCompactList}\small\item\em Gibt einen Hilfetext für alle verfügbaren Kommandos aus. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceui__cli_a743641f0c7d696f25c0682a7a7ea8a2b}{watcher}} (ui\+\_\+queue)
+\begin{DoxyCompactList}\small\item\em Gibt alle neuen Nachrichten aus der UI-\/\+Queue farbig auf dem Terminal aus. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceui__cli_af8bf0fd03904b663679c7c0177c64d7a}{print\+\_\+status}} (handle, status, dnd)
+\begin{DoxyCompactList}\small\item\em Zeigt aktuelle Nutzerinformationen (Nickname, Status, DND) im Terminal an. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceui__cli_a39b679957fa81796da094db351344574}{start\+\_\+cli}} (ui\+\_\+queue, discovery\+\_\+queue, network\+\_\+queue, config, contacts, chat\+\_\+history, dnd, status)
+\begin{DoxyCompactList}\small\item\em Hauptfunktion für die farbige Kommandozeilensteuerung von Plauderkiste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceui__cli_a77d6a9d83a5ebcca38acd175f8dd84aa}{autoreset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+\begin{DoxyVerb}@file ui_cli.py
+@brief Farbige, interaktive Kommandozeilen-Benutzeroberfläche für den Peer-to-Peer-Chat "Plauderkiste".
+
+Dieses Modul bietet eine textbasierte, farbige Chat-Oberfläche. Nutzer können Nachrichten senden,
+Bilder übertragen, Kontakte verwalten und ihren Status setzen. Die Oberfläche zeigt alle wichtigen
+Informationen wie Status, DND (Nicht-stören), Kontakte und Chatverlauf an und gibt nützliche Hilfetexte aus.
+
+Das Interface kommuniziert über Queues mit den Discovery- und Netzwerkmodulen.
+Für die Farbdarstellung wird das Paket colorama verwendet.
+
+Das CLI ist so gestaltet, dass es ohne Klassen auskommt und auch für technisch weniger erfahrene
+Nutzer leicht zu bedienen ist.
+
+@author Mahir Ahmad, Sena Akpolad, Onur Ücelehan, Meriam Lakhrissi, Najiba Sulaimankhel
+@date 2025
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespaceui__cli_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespaceui__cli_aa387c22239d2dfa642c43027a5f595ea}\index{ui\_cli@{ui\_cli}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!ui\_cli@{ui\_cli}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily \label{namespaceui__cli_aa387c22239d2dfa642c43027a5f595ea} 
+ui\+\_\+cli.\+print\+\_\+help (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gibt einen Hilfetext für alle verfügbaren Kommandos aus. 
+
+\begin{DoxyVerb}Gibt eine Übersicht über alle unterstützten Chat-Befehle und deren Anwendung aus.
+\end{DoxyVerb}
+ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 0
+\Hypertarget{namespaceui__cli_af8bf0fd03904b663679c7c0177c64d7a}\index{ui\_cli@{ui\_cli}!print\_status@{print\_status}}
+\index{print\_status@{print\_status}!ui\_cli@{ui\_cli}}
+\doxysubsubsection{\texorpdfstring{print\_status()}{print\_status()}}
+{\footnotesize\ttfamily \label{namespaceui__cli_af8bf0fd03904b663679c7c0177c64d7a} 
+ui\+\_\+cli.\+print\+\_\+status (\begin{DoxyParamCaption}\item[{}]{handle}{, }\item[{}]{status}{, }\item[{}]{dnd}{}\end{DoxyParamCaption})}
+
+
+
+Zeigt aktuelle Nutzerinformationen (Nickname, Status, DND) im Terminal an. 
+
+\begin{DoxyVerb}Zeigt in einer farbigen Zeile an, unter welchem Nickname der Nutzer aktiv ist,
+welchen Status er gesetzt hat und ob der Nicht-stören-Modus aktiv ist.
+
+@param handle: Aktueller Nutzername 
+@param status: Aktueller Statuswert 
+@param dnd: DND-Modus (Nicht stören)
+\end{DoxyVerb}
+ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 1
+\Hypertarget{namespaceui__cli_a39b679957fa81796da094db351344574}\index{ui\_cli@{ui\_cli}!start\_cli@{start\_cli}}
+\index{start\_cli@{start\_cli}!ui\_cli@{ui\_cli}}
+\doxysubsubsection{\texorpdfstring{start\_cli()}{start\_cli()}}
+{\footnotesize\ttfamily \label{namespaceui__cli_a39b679957fa81796da094db351344574} 
+ui\+\_\+cli.\+start\+\_\+cli (\begin{DoxyParamCaption}\item[{}]{ui\+\_\+queue}{, }\item[{}]{discovery\+\_\+queue}{, }\item[{}]{network\+\_\+queue}{, }\item[{}]{config}{, }\item[{}]{contacts}{, }\item[{}]{chat\+\_\+history}{, }\item[{}]{dnd}{, }\item[{}]{status}{}\end{DoxyParamCaption})}
+
+
+
+Hauptfunktion für die farbige Kommandozeilensteuerung von Plauderkiste. 
+
+\begin{DoxyVerb}Startet die textbasierte, farbige Oberfläche des Plauderkiste-Chats.
+Nutzer können Kommandos eingeben, Nachrichten versenden und Systeminformationen einsehen.
+
+Die Funktion läuft in einer Schleife bis der Nutzer den Chat verlässt.
+
+@param ui_queue: Queue für neue System- und Chatnachrichten 
+@param discovery_queue: Queue für Kommandos an die Discovery-Komponente
+@param network_queue: Queue für Kommandos an das Netzwerkmodul 
+@param config: Konfiguration (dict), enthält Nutzername, Port, u.a.
+@param contacts: Gemeinsame Kontaktliste
+@param chat_history: Gemeinsame Chat-Historie 
+@param dnd: Status für Nicht-stören 
+@param status: Freitext-Statusanzeige
+@return: None
+\end{DoxyVerb}
+ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+% FIG 2
+\Hypertarget{namespaceui__cli_a743641f0c7d696f25c0682a7a7ea8a2b}\index{ui\_cli@{ui\_cli}!watcher@{watcher}}
+\index{watcher@{watcher}!ui\_cli@{ui\_cli}}
+\doxysubsubsection{\texorpdfstring{watcher()}{watcher()}}
+{\footnotesize\ttfamily \label{namespaceui__cli_a743641f0c7d696f25c0682a7a7ea8a2b} 
+ui\+\_\+cli.\+watcher (\begin{DoxyParamCaption}\item[{}]{ui\+\_\+queue}{}\end{DoxyParamCaption})}
+
+
+
+Gibt alle neuen Nachrichten aus der UI-\/\+Queue farbig auf dem Terminal aus. 
+
+\begin{DoxyVerb}Gibt alle eingegangenen System- oder Chatnachrichten, die sich in der Queue befinden, farbig aus.
+
+@param ui_queue: Queue mit neuen Nachrichten
+\end{DoxyVerb}
+ 
+
+\label{doc-var-members}
+\Hypertarget{namespaceui__cli_doc-var-members}
+\doxysubsection{Variablen-\/\+Dokumentation}
+\Hypertarget{namespaceui__cli_a77d6a9d83a5ebcca38acd175f8dd84aa}\index{ui\_cli@{ui\_cli}!autoreset@{autoreset}}
+\index{autoreset@{autoreset}!ui\_cli@{ui\_cli}}
+\doxysubsubsection{\texorpdfstring{autoreset}{autoreset}}
+{\footnotesize\ttfamily \label{namespaceui__cli_a77d6a9d83a5ebcca38acd175f8dd84aa} 
+ui\+\_\+cli.\+autoreset}
+

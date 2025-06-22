@@ -1,0 +1,49 @@
+\doxysection{start-\/\+Namensbereichsreferenz}
+\hypertarget{namespacestart}{}\label{namespacestart}\index{start@{start}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestart_acb982ba0ace05f1c742446c8a0c41010}{main}} ()
+\begin{DoxyCompactList}\small\item\em Hauptfunktion\+: Initialisiert Konfiguration und startet alle Komponenten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+\begin{DoxyVerb}@file start.py
+@brief Startet alle Prozesse und das CLI (oder optional GUI) für den Peer-to-Peer-Chat "Plauderkiste".
+
+Dieses Modul ist der Einstiegspunkt der Anwendung. Es kümmert sich um das Laden der Konfiguration,
+startet alle benötigten Prozesse (Discovery, Netzwerk, UI) und verwaltet die Kommunikation zwischen ihnen.
+Es kann über Kommandozeilenargumente die zu verwendende Konfigurationsdatei wählen.
+
+Die einzelnen Komponenten kommunizieren über multiprocessing.Queue und teilen Daten über Manager-Objekte.
+
+@author Mahir Ahmad, Sena Akpolad, Onur Ücelehan, Meriam Lakhrissi, Najiba Sulaimankhels
+@date 2025
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespacestart_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespacestart_acb982ba0ace05f1c742446c8a0c41010}\index{start@{start}!main@{main}}
+\index{main@{main}!start@{start}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{namespacestart_acb982ba0ace05f1c742446c8a0c41010} 
+start.\+main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hauptfunktion\+: Initialisiert Konfiguration und startet alle Komponenten. 
+
+\begin{DoxyVerb}Initialisiert das Plauderkiste-System: Lädt die Konfiguration, erstellt Datenstrukturen,
+startet Discovery-, Netzwerk- und UI-Prozess.
+
+Kann die Konfigurationsdatei als Argument entgegennehmen, ansonsten wird 'config1.toml' verwendet.
+Am Ende werden die Hintergrundprozesse sauber beendet.
+
+@return: None
+\end{DoxyVerb}
+ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+% FIG 0
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 1

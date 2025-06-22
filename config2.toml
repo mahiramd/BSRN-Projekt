@@ -1,0 +1,13 @@
+# Plauderkiste Konfiguration für User 2
+
+# Eindeutiger Nutzername (Handle)
+handle = "Superman"
+
+# TCP-Port für eingehende Nachrichten/Bilder (muss pro User unterschiedlich sein)
+port = 5002
+
+# UDP-Port für Discovery (alle Peers müssen denselben UDP-Port verwenden)
+whoisport = 4000
+
+# Ordner für empfangene Bilder
+imagepath = "./images2"

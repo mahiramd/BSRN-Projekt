@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Plauderkiste: Plauderkiste</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Plauderkiste<span id="projectnumber">&#160;2025</span>
+   </div>
+   <div id="projectbrief">Peer-to-Peer Chat für lokale Netzwerke</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Suchen',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Lade ...</div>
+<div class="SRStatus" id="Searching">Suche ...</div>
+<div class="SRStatus" id="NoMatches">Keine Treffer</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Plauderkiste </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Plauderkiste – Peer-to-Peer Chat für lokale Netzwerke</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Team</h2>
+<ul>
+<li>Mahir Ahmad</li>
+<li>Sena Akpolad</li>
+<li>Onur Ücelehan</li>
+<li>Meriam Lakhrissi</li>
+<li>Najiba Sulaimankhel</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Projektbeschreibung</h2>
+<p>Plauderkiste ist eine eigenständige Peer-to-Peer-Chatsoftware, die speziell für lokale Netzwerke (z.B. Uni, WG, Büro) entwickelt wurde. Plauderkiste ermöglicht es, direkt und ohne zentralen Server mit anderen Nutzern zu chatten und Bilder zu teilen. Das System ist robust, einfach zu bedienen und benötigt keinerlei Abhängigkeiten.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Hauptfunktionen</h2>
+<ul>
+<li><b>Direkte Textnachrichten</b> zwischen allen verbundenen Nutzern</li>
+<li><b>Bildversand</b> mit Dateigrößenanzeige und Speicherung in Benutzerordnern</li>
+<li><b>Automatisches Discovery</b>: Neue Nutzer werden im Netzwerk ohne zentrale Verwaltung gefunden</li>
+<li><b>Statusanzeige</b> und <b>Nicht-stören-Modus</b></li>
+<li><b>Speicherung</b> und <b>Anzeige</b> des gesamten Chatverlaufs</li>
+<li><b>Konfigurations-Reload</b> im laufenden Betrieb möglich</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Technischer Ansatz</h2>
+<ul>
+<li><em>Peer-to-Peer Architektur</em>: Jeder Nutzer ist gleichberechtigt, es gibt keinen Server</li>
+<li><em>Kommunikation</em>: UDP-Broadcast für Discovery, TCP für Messaging/Bilder</li>
+<li><em>Prozessmodell</em>: Jeder Hauptteil (Discovery, Messaging, UI) läuft als separater Prozess</li>
+<li><em>Prozesssynchronisation</em>: Über Python multiprocessing.Manager und Queues</li>
+<li><em>Modular</em>: Die Software ist modular und rein funktionsbasiert geschrieben, für maximale Nachvollziehbarkeit</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Bedienung</h2>
+<ul>
+<li>Gestartet wird mit <span class="tt">python start.py config1.toml</span> (bzw. mit einer anderen Konfiguration für weitere Nutzer)</li>
+<li>Im Chat stehen intuitive Befehle wie <span class="tt">msg</span>, <span class="tt">img</span>, <span class="tt">who</span>, <span class="tt">contacts</span>, <span class="tt">status</span>, <span class="tt">help</span> etc. bereit</li>
+<li>Bei Beenden wird alles sauber geschlossen und der Verlauf kann gespeichert werden</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Architekturdiagramm</h2>
+<p><img src="architektur.png" alt="" class="inline" title="Architekturdiagramm"/>    </p>
+<p></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+CLI-Screenshots</h2>
+<p><img src="screenshot_cli.png" alt="" class="inline" title="CLI-Screenshot 1"/>    </p>
+<p></p>
+<p><img src="screenshot_cli_2.png" alt="" class="inline" title="CLI-Screenshot 2"/>    </p>
+<p></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Detaillierter Aufbau</h2>
+<p>Plauderkiste besteht aus den folgenden Modulen:</p>
+<ul>
+<li><b>start.py:</b> Initialisiert alles, startet Prozesse, hält alles zusammen</li>
+<li><b>discovery_comm.py:</b> Findet andere Nutzer im Netzwerk (UDP-Broadcast)</li>
+<li><b>network_comm.py:</b> Übernimmt das Versenden und Empfangen von Nachrichten/Bildern (TCP)</li>
+<li><b>ui_cli.py:</b> Das Kommandozeilen-Interface für Eingabe, Status und Darstellung</li>
+<li><b>data_manager.py:</b> Speichern und Nachladen des Verlaufs und der Konfiguration</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Wichtige Designentscheidungen und Herausforderungen</h2>
+<ul>
+<li><em>Synchronisierung ohne Datenverlust</em>: Durch periodisches "WHO"/"SEEN"-Verfahren und klare Fehlerbehandlung</li>
+<li><em>Unabhängige Prozesse</em>: Prozesse laufen unabhängig, Datenaustausch nur über Queues und Manager-Objekte</li>
+<li><em>Modularität</em>: Jede Funktionalität (Discovery, Netzwerk, UI, Daten) ist ein eigenes Modul – verständlich für neue Entwickler</li>
+<li><em>Benutzerfreundlichkeit</em>: Einfache, farbige CLI mit klaren Kommandos und Fehlerausgaben</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Bekannte Probleme &amp; Hinweise</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+Windows-spezifische Einschränkungen</h3>
+<ul>
+<li><b>UDP-Broadcast auf localhost</b>: Unter Windows funktioniert UDP-Broadcast mit mehreren Instanzen auf derselben Maschine nur eingeschränkt. Wenn Sie mehrere Clients auf einem Gerät starten, kann es sein, dass nicht alle sich gegenseitig sehen. Im realen Netzwerk (mehrere Geräte) oder unter Linux/Mac gibt es dieses Problem nicht.</li>
+<li><b>Firewall blockiert Kommunikation</b>: Windows-Firewall (oder Antivirus) kann sowohl UDP- als auch TCP-Verbindungen blockieren. Geben Sie im Zweifel dem Python-Interpreter (z.B. python.exe) Zugriffsrechte für das lokale Netzwerk.</li>
+<li><b>Port bereits belegt</b>: Falls beim Starten die Fehlermeldung <span class="tt">OSError: [WinError 10048]</span> erscheint, ist der gewünschte Port schon in Benutzung. Ändern Sie in der jeweiligen Konfigurationsdatei (<span class="tt">configX.toml</span>) den Wert für <span class="tt">port</span> und <span class="tt">whoisport</span> auf einen anderen, noch freien Port.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Allgemeine Hinweise</h3>
+<ul>
+<li><b>Images werden nicht immer automatisch angezeigt</b>: Das Öffnen empfangener Bilder funktioniert nur, wenn das Betriebssystem das zugehörige Standardprogramm richtig hinterlegt hat.</li>
+<li><b>Verlorene Nachrichten bei Netzwerkproblemen</b>: Da Discovery über UDP läuft, kann es in seltenen Fällen passieren, dass Nachrichten zur Nutzererkennung (WHO/SEEN) verloren gehen und temporär nicht alle Nutzer angezeigt werden. Ein erneutes Ausführen von <span class="tt">who</span> löst das Problem meist.</li>
+<li><b>Erreichbarkeit im WLAN/Netzwerk</b>: In manchen WLANs blockiert der Router lokale Broadcasts. Prüfe ggf. deine Router-Einstellungen oder wechsel in ein anderes Netzwerk.</li>
+</ul>
+<p>Diese Einschränkungen liegen <b>außerhalb des Einflusses der Software</b> und betreffen grundlegende Eigenschaften von Betriebssystemen, Netzwerken oder Geräteeinstellungen.</p>
+<hr  />
+ <dl class="section author"><dt>Autor</dt><dd>Team Plauderkiste: Mahir Ahmad, Sena Akpolad, Onur Ücelehan, Meriam Lakhrissi, Najiba Sulaimankhel </dd></dl>
+<dl class="section date"><dt>Datum</dt><dd>2025 </dd></dl>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

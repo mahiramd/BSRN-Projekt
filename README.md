@@ -1,35 +1,70 @@
-
-
-# Chat-Programm BSRN
-
-Dies ist ein Projekt für das Modul **Betriebssysteme und Rechnernetze** im Sommersemester 2025.
-
-## Projektziel
-Ziel des Projekts ist es, ein dezentrales Chat-Programm zu entwickeln, das es ermöglicht, 
-Textnachrichten und Bilder in einem lokalen Netzwerk auszutauschen. 
-Das System basiert auf einem selbst definierten Protokoll (Simple Local Chat Protocol, SLCP) 
-und nutzt Peer-to-Peer-Kommunikation ohne zentrale Server.
-
-## Hauptfunktionen
-- Versenden und Empfangen von Textnachrichten
-- Versenden und Empfangen von Bildern
-- Discovery-Dienst zum Auffinden anderer Teilnehmer
-- Kommandozeilen-Interface (CLI)
-- Konfigurationsdatei im TOML-Format
-
-## Technologien
-- Programmiersprache: Python
-- Netzwerktechnologien: UDP und TCP Sockets
-- Tools: Git, GitHub, Doxygen, Visual Studios, Terminal
+# Plauderkiste – Peer-to-Peer Chat für lokale Netzwerke
 
 ## Team
 - Mahir Ahmad
 - Sena Akpolad
-- Onur Ücelehan
 - Meriam Lakhrissi
 - Najiba Sulaimankhel
+- Onur Ücelehan
 
+## Projektbeschreibung
+Plauderkiste ist eine eigenständige Peer-to-Peer-Chatsoftware, die speziell für lokale Netzwerke (z.B. Uni, WG, Büro) entwickelt wurde.  
+Plauderkiste ermöglicht es, direkt und ohne zentralen Server mit anderen Nutzern zu chatten und Bilder zu teilen.  
+Das System ist robust, einfach zu bedienen und benötigt keinerlei Abhängigkeiten.
 
-**Stand:** April 2025
+## Hauptfunktionen
+- **Direkte Textnachrichten** zwischen allen verbundenen Nutzern
+- **Bildversand** mit Dateigrößenanzeige und Speicherung in Benutzerordnern
+- **Automatisches Discovery**: Neue Nutzer werden im Netzwerk ohne zentrale Verwaltung gefunden
+- **Statusanzeige** und **Nicht-stören-Modus**
+- **Speicherung** und **Anzeige** des gesamten Chatverlaufs
+- **Konfigurations-Reload** im laufenden Betrieb möglich
 
- 
+## Technischer Ansatz
+- *Peer-to-Peer Architektur*: Jeder Nutzer ist gleichberechtigt, es gibt keinen Server
+- *Kommunikation*: UDP-Broadcast für Discovery, TCP für Messaging/Bilder
+- *Prozessmodell*: Jeder Hauptteil (Discovery, Messaging, UI) läuft als separater Prozess
+- *Prozesssynchronisation*: Über Python multiprocessing.Manager und Queues
+- *Modular*: Die Software ist modular und rein funktionsbasiert geschrieben, für maximale Nachvollziehbarkeit
+
+## Bedienung
+- Gestartet wird mit `python start.py config1.toml` (bzw. mit einer anderen Konfiguration für weitere Nutzer)
+- Im Chat stehen intuitive Befehle wie `msg`, `img`, `who`, `contacts`, `status`, `help` etc. bereit
+- Bei Beenden wird alles sauber geschlossen und der Verlauf kann gespeichert werden
+
+## Architekturdiagramm
+![Architekturdiagramm](architektur.png)
+
+## CLI-Screenshots
+![CLI-Screenshot 1](screenshot_cli.png)
+![CLI-Screenshot 2](screenshot_cli_2.png)
+
+## Detaillierter Aufbau
+
+Plauderkiste besteht aus den folgenden Modulen:
+
+- **start.py:** Initialisiert alles, startet Prozesse, hält alles zusammen
+- **discovery_comm.py:** Findet andere Nutzer im Netzwerk (UDP-Broadcast)
+- **network_comm.py:** Übernimmt das Versenden und Empfangen von Nachrichten/Bildern (TCP)
+- **ui_cli.py:** Das Kommandozeilen-Interface für Eingabe, Status und Darstellung
+- **data_manager.py:** Speichern und Nachladen des Verlaufs und der Konfiguration
+
+## Wichtige Designentscheidungen und Herausforderungen
+- *Synchronisierung ohne Datenverlust*: Durch periodisches "WHO"/"SEEN"-Verfahren und klare Fehlerbehandlung
+- *Unabhängige Prozesse*: Prozesse laufen unabhängig, Datenaustausch nur über Queues und Manager-Objekte
+- *Modularität*: Jede Funktionalität (Discovery, Netzwerk, UI, Daten) ist ein eigenes Modul – verständlich für neue Entwickler
+- *Benutzerfreundlichkeit*: Einfache, farbige CLI mit klaren Kommandos und Fehlerausgaben
+
+## Bekannte Probleme & Hinweise
+
+### Windows-spezifische Einschränkungen
+
+- **UDP-Broadcast auf localhost**: Unter Windows funktioniert UDP-Broadcast mit mehreren Instanzen auf derselben Maschine nur eingeschränkt. Wenn Sie mehrere Clients auf einem Gerät starten, kann es sein, dass nicht alle sich gegenseitig sehen. Im realen Netzwerk (mehrere Geräte) oder unter Linux/Mac gibt es dieses Problem nicht.
+- **Firewall blockiert Kommunikation**: Windows-Firewall (oder Antivirus) kann sowohl UDP- als auch TCP-Verbindungen blockieren. Geben Sie im Zweifel dem Python-Interpreter (z.B. python.exe) Zugriffsrechte für das lokale Netzwerk.
+- **Port bereits belegt**: Falls beim Starten die Fehlermeldung `OSError: [WinError 10048]` erscheint, ist der gewünschte Port schon in Benutzung. Ändern Sie in der jeweiligen Konfigurationsdatei (`configX.toml`) den Wert für `port` und `whoisport` auf einen anderen, noch freien Port.
+
+### Allgemeine Hinweise
+
+- **Images werden nicht immer automatisch angezeigt**: Das Öffnen empfangener Bilder funktioniert nur, wenn das Betriebssystem das zugehörige Standardprogramm richtig hinterlegt hat.
+- **Verlorene Nachrichten bei Netzwerkproblemen**: Da Discovery über UDP läuft, kann es in seltenen Fällen passieren, dass Nachrichten zur Nutzererkennung (WHO/SEEN) verloren gehen und temporär nicht alle Nutzer angezeigt werden. Ein erneutes Ausführen von `who` löst das Problem meist.
+- **Erreichba**

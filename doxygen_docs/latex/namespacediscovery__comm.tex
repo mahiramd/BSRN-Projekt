@@ -1,0 +1,46 @@
+\doxysection{discovery\+\_\+comm-\/\+Namensbereichsreferenz}
+\hypertarget{namespacediscovery__comm}{}\label{namespacediscovery__comm}\index{discovery\_comm@{discovery\_comm}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacediscovery__comm_a61b5c92eaa03680ad12a764a8dda23af}{discovery\+\_\+service}} (ui\+\_\+queue, disc\+\_\+queue, config, kontaktbuch)
+\begin{DoxyCompactList}\small\item\em Discovery-\/\+Service\+: Findet andere Nutzer im lokalen Netzwerk und verwaltet die Kontaktliste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+\begin{DoxyVerb}@file discovery_comm.py
+@brief Verantwortlich für das Auffinden und die Verwaltung von Chat-Teilnehmern im lokalen Netzwerk.
+
+Dieses Modul übernimmt die Discovery-Funktion im Peer-to-Peer-Netzwerk.
+Nutzer werden über UDP-Broadcast gefunden und bekannt gemacht (JOIN, WHO, LEAVE).
+Die Nutzerliste wird regelmäßig synchronisiert, damit immer die aktuellen Teilnehmer angezeigt werden.
+
+Optimiert für Tests auf localhost (mehrere Instanzen auf einem PC).
+@author Mahir Ahmad, Sena Akpolad, Onur Ücelehan, Meriam Lakhrissi, Najiba Sulaimankhel
+@date 2025
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespacediscovery__comm_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespacediscovery__comm_a61b5c92eaa03680ad12a764a8dda23af}\index{discovery\_comm@{discovery\_comm}!discovery\_service@{discovery\_service}}
+\index{discovery\_service@{discovery\_service}!discovery\_comm@{discovery\_comm}}
+\doxysubsubsection{\texorpdfstring{discovery\_service()}{discovery\_service()}}
+{\footnotesize\ttfamily \label{namespacediscovery__comm_a61b5c92eaa03680ad12a764a8dda23af} 
+discovery\+\_\+comm.\+discovery\+\_\+service (\begin{DoxyParamCaption}\item[{}]{ui\+\_\+queue}{, }\item[{}]{disc\+\_\+queue}{, }\item[{}]{config}{, }\item[{}]{kontaktbuch}{}\end{DoxyParamCaption})}
+
+
+
+Discovery-\/\+Service\+: Findet andere Nutzer im lokalen Netzwerk und verwaltet die Kontaktliste. 
+
+\begin{DoxyVerb}Erkennt andere Nutzer im lokalen Netz per UDP-Broadcast und synchronisiert die Kontaktliste.
+Wartet nach WHO kurz auf alle SEEN-Antworten und merged sie.
+
+@param ui_queue: Queue für System-/Statusnachrichten
+@param disc_queue: Queue für eingehende Discovery-Kommandos aus dem CLI 
+@param config: Dictionary mit Konfiguration (Nickname, Ports, etc.)
+@param kontaktbuch: Manager Dictionary zur Verwaltung aller bekannten Kontakte
+@return: None
+\end{DoxyVerb}
+ 

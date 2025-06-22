@@ -1,0 +1,43 @@
+PROJECT_NAME           = "Plauderkiste"
+PROJECT_BRIEF          = "Peer-to-Peer Chat für lokale Netzwerke"
+PROJECT_NUMBER         = 2025
+OUTPUT_DIRECTORY       = ./doxygen_docs
+INPUT                  = .
+RECURSIVE              = YES
+FILE_PATTERNS          = *.py *.dox *.png *.jpg
+EXCLUDE                =
+EXCLUDE_PATTERNS       = */venv/*
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+EXTENSION_MAPPING      = py=Python
+
+OUTPUT_LANGUAGE        = German
+
+FULL_PATH_NAMES        = NO
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = png
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+DIRECTORY_GRAPH        = YES
+DOT_MULTI_TARGETS      = YES
+
+IMAGE_PATH             = .
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = YES
+
+QUIET                  = NO
+WARN_IF_UNDOCUMENTED   = NO
+
+# HTML_HEADER            = 
+# HTML_FOOTER            = 

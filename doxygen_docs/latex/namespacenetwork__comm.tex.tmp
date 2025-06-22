@@ -1,0 +1,57 @@
+\doxysection{network\+\_\+comm-\/\+Namensbereichsreferenz}
+\hypertarget{namespacenetwork__comm}{}\label{namespacenetwork__comm}\index{network\_comm@{network\_comm}}
+\doxysubsubsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacenetwork__comm_aa9dc672b0eb035901c4c6fa48584e1be}{open\+\_\+image}} (filepath)
+\item 
+\mbox{\hyperlink{namespacenetwork__comm_a9fc8f3e07249b266118a5ff2b195d038}{network\+\_\+service}} (ui\+\_\+queue, net\+\_\+queue, config, peers)
+\begin{DoxyCompactList}\small\item\em TCP-\/\+Server \& Client für Nachrichten-\/ und Bildübertragung. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Ausführliche Beschreibung}
+\begin{DoxyVerb}@file network_comm.py
+@brief Modul für den Austausch von Nachrichten und Bildern im Peer-to-Peer-Chat "Plauderkiste".
+
+Dieses Modul kümmert sich um das Senden und Empfangen von Textnachrichten und Bilddateien zwischen den Teilnehmern.
+Die Kommunikation läuft über TCP – jedes Plauderkiste-Programm ist zugleich Client und Server.
+Nachrichten und Bilder werden von diesem Modul empfangen, verarbeitet und an das User-Interface weitergegeben.
+
+Es werden keine Klassen verwendet. Die Anbindung an das CLI und die Discovery-Komponente erfolgt über Queues.
+
+@author Mahir Ahmad, Sena Akpolad, Onur Ücelehan, Meriam Lakhrissi, Najiba Sulaimankhel
+@date 2025
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespacenetwork__comm_doc-func-members}
+\doxysubsection{Dokumentation der Funktionen}
+\Hypertarget{namespacenetwork__comm_a9fc8f3e07249b266118a5ff2b195d038}\index{network\_comm@{network\_comm}!network\_service@{network\_service}}
+\index{network\_service@{network\_service}!network\_comm@{network\_comm}}
+\doxysubsubsection{\texorpdfstring{network\_service()}{network\_service()}}
+{\footnotesize\ttfamily \label{namespacenetwork__comm_a9fc8f3e07249b266118a5ff2b195d038} 
+network\+\_\+comm.\+network\+\_\+service (\begin{DoxyParamCaption}\item[{}]{ui\+\_\+queue}{, }\item[{}]{net\+\_\+queue}{, }\item[{}]{config}{, }\item[{}]{peers}{}\end{DoxyParamCaption})}
+
+
+
+TCP-\/\+Server \& Client für Nachrichten-\/ und Bildübertragung. 
+
+\begin{DoxyVerb}Startet den TCP-Server und verarbeitet sowohl eingehende als auch ausgehende Nachrichten und Bilder.
+
+@param ui_queue: Queue für Status- und Chatnachrichten an die Benutzeroberfläche (multiprocessing.Queue)
+@param net_queue: Queue für ausgehende Befehle/Sendewünsche aus dem CLI (multiprocessing.Queue)
+@param config: Konfigurationsdaten (dict) mit Nutzername, Port, Bildordner etc.
+@param peers: Kontaktbuch (Manager.dict), aktuelle Peer-Liste mit IP und Port
+@return: None
+\end{DoxyVerb}
+ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+% FIG 0
+\Hypertarget{namespacenetwork__comm_aa9dc672b0eb035901c4c6fa48584e1be}\index{network\_comm@{network\_comm}!open\_image@{open\_image}}
+\index{open\_image@{open\_image}!network\_comm@{network\_comm}}
+\doxysubsubsection{\texorpdfstring{open\_image()}{open\_image()}}
+{\footnotesize\ttfamily \label{namespacenetwork__comm_aa9dc672b0eb035901c4c6fa48584e1be} 
+network\+\_\+comm.\+open\+\_\+image (\begin{DoxyParamCaption}\item[{}]{filepath}{}\end{DoxyParamCaption})}
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 1
