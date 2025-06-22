@@ -3,9 +3,9 @@
 ## Team
 - Mahir Ahmad
 - Sena Akpolad
+- Onur Ücelehan
 - Meriam Lakhrissi
 - Najiba Sulaimankhel
-- Onur Ücelehan
 
 ## Projektbeschreibung
 Plauderkiste ist eine eigenständige Peer-to-Peer-Chatsoftware, die speziell für lokale Netzwerke (z.B. Uni, WG, Büro) entwickelt wurde.  
@@ -25,7 +25,7 @@ Das System ist robust, einfach zu bedienen und benötigt keinerlei Abhängigkeit
 - *Kommunikation*: UDP-Broadcast für Discovery, TCP für Messaging/Bilder
 - *Prozessmodell*: Jeder Hauptteil (Discovery, Messaging, UI) läuft als separater Prozess
 - *Prozesssynchronisation*: Über Python multiprocessing.Manager und Queues
-- *Modular*: Die Software ist modular und rein funktionsbasiert geschrieben, für maximale Nachvollziehbarkeit
+- *Keine Klassen*: Die Software ist modular und rein funktionsbasiert geschrieben, für maximale Nachvollziehbarkeit
 
 ## Bedienung
 - Gestartet wird mit `python start.py config1.toml` (bzw. mit einer anderen Konfiguration für weitere Nutzer)
@@ -67,4 +67,10 @@ Plauderkiste besteht aus den folgenden Modulen:
 
 - **Images werden nicht immer automatisch angezeigt**: Das Öffnen empfangener Bilder funktioniert nur, wenn das Betriebssystem das zugehörige Standardprogramm richtig hinterlegt hat.
 - **Verlorene Nachrichten bei Netzwerkproblemen**: Da Discovery über UDP läuft, kann es in seltenen Fällen passieren, dass Nachrichten zur Nutzererkennung (WHO/SEEN) verloren gehen und temporär nicht alle Nutzer angezeigt werden. Ein erneutes Ausführen von `who` löst das Problem meist.
-- **Erreichba**
+- **Erreichbarkeit im WLAN/Netzwerk**: In manchen WLANs blockiert der Router lokale Broadcasts. Prüfen Sie ggf. Ihre Router-Einstellungen oder wechseln Sie in ein anderes Netzwerk.
+
+Diese Einschränkungen liegen **außerhalb des Einflusses der Software** und betreffen grundlegende Eigenschaften von Betriebssystemen, Netzwerken oder Geräteeinstellungen.
+
+---
+
+**Made by Team Plauderkiste**
